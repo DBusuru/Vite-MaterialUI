@@ -16,32 +16,32 @@ function App() {
   // Example card data
   const cards = [
     {
-      image: '/static/images/cards/contemplative-reptile.jpg',
+      image: 'https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800',
       title: 'Lizard',
       description: 'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica.'
     },
     {
-      image: '/static/images/cards/contemplative-reptile.jpg',
+      image: 'https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800',
       title: 'Iguana',
       description: 'Iguanas are herbivorous lizards native to Central and South America.'
     },
     {
-      image: '/static/images/cards/contemplative-reptile.jpg',
+      image: 'https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800',
       title: 'Gecko',
       description: 'Geckos are small lizards found in warm climates throughout the world.'
     },
     {
-      image: '/static/images/cards/contemplative-reptile.jpg',
+      image: 'https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800',
       title: 'Chameleon',
       description: 'Chameleons are known for their distinct color-changing abilities and unique tongue structure.'
     },
     {
-      image: '/static/images/cards/contemplative-reptile.jpg',
+      image: 'https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800',
       title: 'Chameleon',
       description: 'Chameleons are known for their distinct color-changing abilities and unique tongue structure.'
     },
     {
-      image: '/static/images/cards/contemplative-reptile.jpg',
+      image: 'https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800',
       title: 'Chameleon',
       description: 'Chameleons are known for their distinct color-changing abilities and unique tongue structure.'
     },
