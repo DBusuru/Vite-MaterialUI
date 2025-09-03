@@ -1,6 +1,9 @@
 import { useState, useMemo } from 'react';
 import Header from './components/Header';
 import Card from './components/Card';
+import Carousel from './components/Carousel';
+import Footer from './components/Footer';
+
 import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
@@ -26,7 +29,23 @@ function App() {
       image: '/static/images/cards/contemplative-reptile.jpg',
       title: 'Gecko',
       description: 'Geckos are small lizards found in warm climates throughout the world.'
-    }
+    },
+    {
+      image: '/static/images/cards/contemplative-reptile.jpg',
+      title: 'Chameleon',
+      description: 'Chameleons are known for their distinct color-changing abilities and unique tongue structure.'
+    },
+    {
+      image: '/static/images/cards/contemplative-reptile.jpg',
+      title: 'Chameleon',
+      description: 'Chameleons are known for their distinct color-changing abilities and unique tongue structure.'
+    },
+    {
+      image: '/static/images/cards/contemplative-reptile.jpg',
+      title: 'Chameleon',
+      description: 'Chameleons are known for their distinct color-changing abilities and unique tongue structure.'
+    },
+
   ];
 
   // Responsive theme with color mode
@@ -59,9 +78,13 @@ function App() {
   }, [mode]);
 
   return (
+    
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Header mode={mode} setMode={setMode} />
+      <Carousel />
+      <div className='container'>
+        
       <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
         {cards.map((card, idx) => (
           <Card
@@ -71,10 +94,16 @@ function App() {
             description={card.description}
           />
         ))}
+</div>
       </div>
+   
       {/* ...other content... */}
+      <footer>
+        <Footer />
+      </footer>
     </ThemeProvider>
-  )
+   
+  );
 }
 
 export default App
