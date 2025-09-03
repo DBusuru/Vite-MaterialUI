@@ -12,12 +12,15 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import SettingsBrightnessIcon from '@mui/icons-material/SettingsBrightness';
 
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-function ResponsiveAppBar() {
+function ResponsiveAppBar({ mode, setMode }) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -38,7 +41,7 @@ function ResponsiveAppBar() {
 
   return (
     <div className ="header">
-    <AppBar position="static">
+    <AppBar position="sticky">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -126,6 +129,24 @@ function ResponsiveAppBar() {
                 {page}
               </Button>
             ))}
+          </Box>
+          {/* Theme icons */}
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mr: 2 }}>
+            <Tooltip title="System">
+              <IconButton color={mode === 'system' ? 'secondary' : 'inherit'} onClick={() => setMode('system')}>
+                <SettingsBrightnessIcon />
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="Light">
+              <IconButton color={mode === 'light' ? 'secondary' : 'inherit'} onClick={() => setMode('light')}>
+                <LightModeIcon />
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="Dark">
+              <IconButton color={mode === 'dark' ? 'secondary' : 'inherit'} onClick={() => setMode('dark')}>
+                <DarkModeIcon />
+              </IconButton>
+            </Tooltip>
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">

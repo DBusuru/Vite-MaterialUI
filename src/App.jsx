@@ -1,12 +1,14 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react';
+import Header from './components/Header';
+import Card from './components/Card';
+import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 
-import Header from './components/Header'
-import Card from './components/Card'
+import './App.css';
 
-import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [mode, setMode] = useState('light')
 
   // Example card data
   const cards = [
@@ -27,9 +29,39 @@ function App() {
     }
   ];
 
+  // Responsive theme with color mode
+  const theme = useMemo(() => {
+    let t = createTheme({
+      palette: {
+        mode: mode === 'system' ? (window.matchMedia('(prefers-color-scheme: darkmodeicon)').matches ? 'dark' : 'light') : mode,
+        primary: {
+          main: '#1976d2',
+        },
+        secondary: {
+          main: '#dc004e',
+        },
+      },
+      typography: {
+        fontFamily: 'system-ui, Avenir, Helvetica, Arial, sans-serif',
+      },
+      breakpoints: {
+        values: {
+          xs: 0,
+          sm: 600,
+          md: 900,
+          lg: 1200,
+          xl: 1536,
+        },
+      },
+    });
+    t = responsiveFontSizes(t);
+    return t;
+  }, [mode]);
+
   return (
-    <>
-      <Header />
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Header mode={mode} setMode={setMode} />
       <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
         {cards.map((card, idx) => (
           <Card
@@ -41,8 +73,8 @@ function App() {
         ))}
       </div>
       {/* ...other content... */}
-    </>
+    </ThemeProvider>
   )
 }
 
-export default App    
+export default App
